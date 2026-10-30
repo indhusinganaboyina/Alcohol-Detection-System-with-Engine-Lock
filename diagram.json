@@ -1,0 +1,74 @@
+
+{
+  "version": 1,
+  "author": "Bhanu sree",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": -150,
+      "left": 180,
+      "attrs": {
+        "volume": "0.5"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": -140,
+      "left": 20,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resistor",
+      "top": -80,
+      "left": 20,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot",
+      "top": 240,
+      "left": 100,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay",
+      "top": -100,
+      "left": 350,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    ["uno:5", "buzzer:1", "red", []],
+    ["buzzer:2", "uno:GND.1", "black", []],
+
+    ["uno:13", "resistor:1", "green", []],
+    ["resistor:2", "led:A", "green", []],
+    ["led:C", "uno:GND.2", "black", []],
+
+    ["uno:9", "relay:IN", "green", []],
+    ["uno:5V", "relay:VCC", "red", []],
+    ["uno:GND.3", "relay:GND", "black", []],
+
+    ["uno:5V", "pot:VCC", "red", []],
+    ["uno:A0", "pot:SIG", "yellow", []],
+    ["uno:GND.2", "pot:GND", "black", []]
+  ],
+  "dependencies": {}
+}
